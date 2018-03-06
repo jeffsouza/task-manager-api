@@ -33,5 +33,11 @@ RSpec.describe User, type: :model do
 
       expect(user.auth_token).not_to eq('abc123tokenxyz')
     end
+
+    it 'sets a token with 20 characters' do
+      user.generate_authentication_token!
+
+      expect(user.auth_token.length).to eq(20)
+    end
   end
 end
